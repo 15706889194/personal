@@ -1,0 +1,19 @@
+server:
+  port: 8080
+druid:
+  allow:
+    ip: 127.0.0.1
+  login:
+    user_name: root
+    password: root
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://120.78.185.109/mall?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 09251008@jx
+
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**/mapper/*.xml
