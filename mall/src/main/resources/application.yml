@@ -12,8 +12,31 @@ spring:
     url: jdbc:mysql://120.78.185.109/mall?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: 09251008@jx
+  redis:
+    host: 120.78.185.109
+#    Redis数据库索引（默认为0）
+    database: 0
+    pool: 6379
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 8 # 连接池中的最大空闲连接
+        min-idle: 0 # 连接池中的最小空闲连接
+      timeout: 3000ms # 连接超时时间（毫秒）
 
 mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
     - classpath*:com/**/mapper/*.xml
+
+
+redis:
+  key:
+    prefix:
+      authCode: "portal:authCode:"
+    expire:
+      authCode: 120 # 验证码超期时间
+
+
+
